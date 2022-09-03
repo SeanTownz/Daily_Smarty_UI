@@ -8,7 +8,9 @@ import reducers from "./reducers";
 import Home from "./components/home"
 import Results from "./components/results";
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+import thunk from "redux-thunk";
+
+const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
 import "./style/main.scss";
 
@@ -17,8 +19,8 @@ function main() {
     <Provider store={createStoreWithMiddleware(reducers)}>
       <BrowserRouter>
         <Switch>
-          <Route path="/" component={Home}/>
-          <Route path="/results" component={Results}/>
+          <Route path='/' exact component={Home}/>
+          <Route path='/results' component={Results}/>
 
         </Switch>
       </BrowserRouter>

@@ -6,7 +6,7 @@ import RecentPost from './recentPost';
 export default class Home extends Component {
   render() {
     return (
-      <div className='app'>
+     
         <div>
           <div>
            <Logo/>
@@ -14,7 +14,7 @@ export default class Home extends Component {
            <RecentPost/>
           </div>
         </div>
-      </div>
+      
     );
   }
 }
