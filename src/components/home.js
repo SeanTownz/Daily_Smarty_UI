@@ -2,15 +2,24 @@ import React, { Component } from 'react';
 import Logo from './logo';
 import SearchBar from './searchBar';
 import RecentPost from './recentPost';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
-export default class Home extends Component {
+ class Home extends Component {
+
+  handleSearchBarSubmit(query) {
+    this.props.fetchPostWithQuery(query);
+    this.props.history.push('/results');
+   
+  }
+
   render() {
     return (
      
         <div>
           <div>
            <Logo/>
-           <SearchBar/>
+           <SearchBar onSubmit={(query) => this.handleSearchBarSubmit(query)}/>
            <RecentPost/>
           </div>
         </div>
@@ -18,3 +27,5 @@ export default class Home extends Component {
     );
   }
 }
+
+export default connect(null, actions)(Home);
